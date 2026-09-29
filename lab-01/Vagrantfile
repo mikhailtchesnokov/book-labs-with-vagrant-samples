@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "app" do |app|
+    app.vm.provider "docker" do |docker|
+      docker.image = "ubuntu:latest"
+      docker.name = "app"
+      docker.cmd = ["sleep", "infinity"]
+    end
+  end
+end

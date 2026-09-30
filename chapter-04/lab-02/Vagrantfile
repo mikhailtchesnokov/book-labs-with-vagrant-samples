@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "app" do |api|   
+    app.vm.provider "docker" do |docker|
+      docker.build_dir = "."
+      docker.name = "app"  
+      docker.has_ssh = true
+      end
+  end
+end 

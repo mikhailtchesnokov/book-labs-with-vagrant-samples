@@ -1,0 +1,10 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "local/debian-base"
+  config.vm.box_url = "debian-base.box"
+  config.vm.define "debian-vm1" do |machine|
+    machine.vm.hostname = "debian-vm1"
+    machine.vm.provider "virtualbox" do |vb|
+      vb.name = "debian-vm1"
+    end
+  end
+end

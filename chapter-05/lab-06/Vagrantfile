@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "local/debian-base" 
+  #config.vm.box_version = "1.0.0"  
+  config.vm.define "debian-vm2" do |machine|    
+    machine.vm.provider "hyperv" do |hv|
+      hv.vmname = "debian-vm2"
+    end
+  end
+end

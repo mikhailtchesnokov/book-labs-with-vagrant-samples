@@ -1,0 +1,15 @@
+{
+  "name": "shared/debian-base",
+  "description": "Custom Debian box for Linux labs",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "providers": [
+        {
+          "name": "hyperv",
+          "url": "https://{account}.blob.core.windows.net/debian-base/debian-base.box"
+        }
+      ]
+    }
+  ]
+}

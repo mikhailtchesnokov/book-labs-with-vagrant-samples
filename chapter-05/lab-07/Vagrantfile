@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "shared/debian-base" 
+  config.vm.box_url = "https://{account}.blob.core.windows.net/debian-base/debian-base.box"
+  config.vm.define "debian-vm3" do |machine|    
+    machine.vm.provider "hyperv" do |hv|
+      hv.vmname = "debian-vm3"
+    end
+  end
+end

@@ -1,0 +1,32 @@
+---
+- name: Configure the Nginx lab
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Publish the lab page
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          <!doctype html>
+          <html>
+          <body>
+            <h1>Greetings from Nginx</h1>
+          </body>
+          </html>
+
+    - name: Ensure Nginx is running and enabled
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true

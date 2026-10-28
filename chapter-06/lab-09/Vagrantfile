@@ -1,0 +1,12 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "local/debian-base"
+  config.vm.define "debian-vm09" do |machine|
+    machine.vm.hostname = "debian-vm09"
+    machine.vm.provider "virtualbox" do |vb|
+      vb.name = "debian-vm09"
+    end
+  end
+  config.vm.provision "ansible_local" do |ansible|
+   ansible.playbook = "playbook.yaml"
+  end
+end
